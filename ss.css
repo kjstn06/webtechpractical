@@ -1,0 +1,175 @@
+body {
+    font-family: Arial;
+    background-color: #1f1f1f;
+    margin: 0;
+    padding: 0;
+    height: 100vh; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column; 
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 1000px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.animation {
+    margin: 20px;
+    padding: 20px;
+    width: 20   0px;  
+    height: 100px; 
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    width: 150px;   
+    height: 100px;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden; 
+}
+
+
+
+
+.moving-left-to-right, .moving-right-to-left, .bouncing-left-to-right, .moving-upward, .moving-downward, .bouncing-up-and-down {
+    position: absolute;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.moving-left-to-right {
+    animation: moveLeftRight 3s infinite linear;
+}
+
+.moving-right-to-left {
+    animation: bounceRightLeft 3s infinite ease-in-out;
+}
+
+.bouncing-left-to-right {
+    animation: bounceLeftRight 3s infinite ease-in-out;
+}
+
+.moving-upward {
+    animation: moveUpward 3s infinite linear;
+}
+
+.moving-downward {
+    animation: moveDownward 3s infinite linear;
+}
+
+.bouncing-up-and-down {
+    animation: bounceUpDown 3s infinite ease-in-out;
+}
+
+
+.box {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: bounce-horizontal 3s infinite, changeColor 3s infinite;
+}
+
+.textsabox {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+@keyframes moveLeftRight {
+    0% { left:-50%; } 
+    100% { left:50%; }
+}     
+
+@keyframes bounceRightLeft {
+    0% {
+        transform: translateX(100%);}
+    50% {
+        transform: translateX(0);}
+    100% {
+        transform: translateX(-70%);}
+}
+
+@keyframes bounceLeftRight {
+    0% {
+        transform: translateX(0);
+        color: #30008a;}
+    25% {
+        transform: translateX(30%); 
+        color: #08c0ee;}
+    50% {
+        transform: translateX(0); 
+        color: #8800a3;}
+    75% {
+        transform: translateX(-30%); 
+        color: #08c0ee;}
+    100% {
+        transform: translateX(0); 
+        color: #30008a;}
+}
+
+@keyframes moveUpward {
+    0% { top:100%; }
+    100% { top:-100%; }
+}
+
+@keyframes moveDownward {
+    0% { top:-100%; }
+    100% { top:100%; }
+}
+
+@keyframes bounceUpDown {
+    0%, 100% {top:0}
+    50% { top:50%; }
+}
+
+@keyframes bounce-horizontal {
+    0% {
+        left: 0;
+        background-color: #00ccff;}
+    25% {
+        left: 30%;
+        background-color: #ff5733;}
+    50% {
+        left: 80%;
+        background-color: #0400dd;}
+    75% {
+        left: 30%;
+        background-color: #ff5733;}
+    100% {
+        left: 0;
+        background-color: #00ccff;}
+}
+
+
+
+
+.controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; 
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0 10px; 
+}
+
+button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
